@@ -1,0 +1,92 @@
+<div class="container-contact100" style="background:url(https://ak9.picdn.net/shutterstock/videos/23608129/thumb/1.jpg)">
+		<div class="wrap-contact100 my-first-column">
+      <div class="form-group"> 
+          <form class="contact100-form validate-form">
+              <span class="contact100-form-title">
+                Get in Touch
+              </span>
+      
+              <div class="wrap-input100 validate-input">
+                <input class="input100" id="Name" type="text" name="Name" placeholder="Name" [(ngModel)]="newItem.Name" >
+                <label class="label-input100" for="name">
+                    <i class="fa fa-user"></i>					
+                  </label>
+              </div>
+      
+              <div class="wrap-input100 validate-input">
+                <input class="input100" id="Email" type="email" name="Email" placeholder="Email" [(ngModel)]="newItem.Email" >
+                <label class="label-input100" for="email">
+                  <span class="fa fa-envelope"></span>
+                </label>
+              </div>
+      
+              <div class="wrap-input100 validate-input" >
+                <input class="input100" id="Phone" type="number" name="Phone" placeholder="Phone" [(ngModel)]="newItem.Phone" >
+                <label class="label-input100" for="phone">
+                  <span class="fa fa-phone"></span>
+                </label>
+              </div>
+      
+              <div class="wrap-input100 validate-input" >
+                <textarea class="input100" name="Message" placeholder="Your message..." [(ngModel)]="newItem.Message" ></textarea>
+              </div>
+
+              <!-- Add button to add record -->      
+            <button type="submit" (click)="AddItem()" [disabled]="IsForUpdate == true" class="btn btn-primary">Add</button>      
+            <!-- Update button to submit updated value -->      
+            <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false" class="btn btn-primary">Update</button>
+      
+            </form>
+
+            <br><br>
+
+              
+
+      </div></div>
+    
+    <div class="wrap-contact100 my-second-column">
+      <div class="panel-body" style="text-align: -webkit-center;">  
+          <table class="table table-bordered">
+            <thead>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Message</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr class="alert alert-info" *ngFor="let data of myItems;let i= index">
+                <td>
+                 {{data.Name}}
+                  
+                 </td>
+   
+                <td>
+                  {{data.Email}}
+                  
+                 </td>
+                <td>
+                  {{data.Phone}}
+                 
+                 </td>
+                <td>
+                  {{data.Message}}
+                 </td>
+                 <td> <a href="#" (click)="DeleteItem(i)" style="float: right;">  
+                     <span class="fa fa-trash" style="color:red"></span>  
+                   </a>  
+                   <a href="#" (click)="EditItem(i)" style="float: right;padding-right: 8px;">  
+                     <span class="fa fa-edit" style="color:forestgreen"></span>  
+                   </a> 
+                 </td>
+              </tr>
+            </tbody>
+          </table> 
+          <div *ngIf="myItems.length == 0" class="alert alert-info" style="width: 50%; font-size: 22px;  background: #ED5252;">  
+            Items Are Empty !!!  
+          </div>  
+      </div>
+    </div>
+</div>
+
+
